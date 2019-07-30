@@ -12,6 +12,24 @@ export default class SingleRecipe extends Component {
       loading: false
     };
   }
+
+  async componentDidMount() {
+    const api_key = "23f0ff58c46ddb25302809bd7282fd35";
+    const url = `https://www.food2fork.com/api/get?key=${api_key}&rId=${
+      this.state.id
+    }`;
+    try {
+      const response = await fetch(url);
+      const responseData = await response.json();
+      this.setState({
+        recipe: responseData.recipe,
+        loading: false
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     const {
       image_url,
