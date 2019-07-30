@@ -19,7 +19,7 @@ export default class Search extends Component {
                 <input
                   type="text"
                   name="search"
-                  className="from-contorl"
+                  className="form-control"
                   placeholder="chicken,onion,carrots"
                   value={search}
                   onChange={handleChange}
